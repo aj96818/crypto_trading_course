@@ -1,3 +1,5 @@
+# Binance Connector
+
 import logging
 
 logger = logging.getLogger()
