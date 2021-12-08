@@ -10,14 +10,13 @@ def insert():
     if date == "" or symbol == "" or txn_type == "":
         MessageBox.showinfo("Enter Txn data", "All fields are required.")
     else:
-        con = mysql.connect(host="localhost", user="root", password="mysqlrootpw", database="py_tk_crypto_tracker")
-        cursor = con.cursor()
-        cursor.execute("insert into txns values('"+ str(1) + "', '" + date +"','" + symbol + "', '" + txn_type +"')")
-        cursor.execute("commit")
-
-
-
-
+        con = mysql.connect(host="localhost", user="root", password="mysqlrootpw", database="crypto_tracker_db")
+        mycursor = con.cursor()
+        sql = "INSERT INTO txns (txn_date, symbol, txn_type) VALUES (%s, %s, %s);"
+        val = (date, symbol, txn_type)
+        mycursor.execute(sql, val)
+        # cursor.execute("insert into txns values('"+ str(1) + "', '" + date +"','" + symbol + "', '" + txn_type +"')")
+        mycursor.execute("commit")
 
         MessageBox.showinfo("Txn inserted into DB successfully", "Successful Insertion");
         con.close()
