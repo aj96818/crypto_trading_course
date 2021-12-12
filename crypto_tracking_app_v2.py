@@ -29,30 +29,30 @@ class MainWindow:
 
         self.exchange_label = tk.Label(mw, text='Exchange:', font=('bold', 15))
         self.exchange_label.place(x=25, y=160)
-        self.exchange_input = tk.Entry()
-        self.exchange_input.place(x=185, y=160)
+        self.clicked = tk.StringVar()
+        self.exchange_dropdown = tk.OptionMenu(mw, self.clicked, "Binance", "Coinbase Pro", "Kraken", "Bittrex", "Coinbase App", "KuCoin Exchange", "BitForex Exchange")
+        self.exchange_dropdown.place(x=185, y=160)
 
         self.price_label = tk.Label(mw, text='Price:', font=('bold', 15))
         self.price_label.place(x=400, y=120)
         self.price_input = tk.Entry()
-        self.price_input.place(x=470, y=120)
+        self.price_input.place(x=480, y=120)
 
         self.quantity_label = tk.Label(mw, text='Quantity:', font=('bold', 15))
         self.quantity_label.place(x=400, y=160)
         self.quantity_input = tk.Entry()
-        self.quantity_input.place(x=470, y=160)
+        self.quantity_input.place(x=480, y=160)
 
         self.insert = tk.Button(mw, text="Insert", highlightbackground='#3E4149', font=("bold", 14), bg="blue", command=self.insert)
         self.insert.place(x=20, y=210)
 
 
-
     def insert(self):
 
         date = self.txn_date_input.get()
-        symbol = self.symbol_input.get()
+        symbol = self.symbol_input.get().upper()
         txn_type = self.txn_type_input.get()
-        exchange_name = self.exchange_input.get()
+        exchange_name = self.clicked.get()
         price = self.price_input.get()
         quantity = self.quantity_input.get()
 
