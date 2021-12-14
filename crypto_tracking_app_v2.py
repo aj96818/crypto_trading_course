@@ -4,12 +4,11 @@ import mysql.connector as mysql
 
 class MainWindow:
 
-
     def __init__(self, mw):
 
         self.mw = mw
         mw.geometry("700x400")
-        mw.title("My Crypto Ledger")
+        mw.title("crypto_tracking_app_v2.py")
         mw.configure(bg="gray12")
 
         self.txn_date_label = tk.Label(mw, text='Date of Transaction:', font=('bold', 15))
@@ -51,6 +50,8 @@ class MainWindow:
         self.insert = tk.Button(mw, text="Insert", highlightbackground='#3E4149', font=("bold", 14), bg="blue", command=self.insert)
         self.insert.place(x=20, y=210)
 
+        self.clear = tk.Button(mw, text="Clear", highlightbackground='#3E4149', font=("bold", 14), bg="blue", command=self.clear_entry)
+        self.clear.place(x=130, y=210)
 
     def insert(self):
 
@@ -75,6 +76,18 @@ class MainWindow:
 
             MessageBox.showinfo("Txn inserted into DB successfully", "Successful Insertion");
             con.close()
+
+    def clear_entry(self):
+
+        self.txn_date_input.delete("0", "end")
+        self.symbol_input.delete("0", "end")
+        self.txn_type_input.delete("0", "end")
+        self.clicked.set("")
+        self.price_input.delete("0", "end")
+        self.quantity_input.delete("0", "end")
+        self.fee_input.delete("0", "end")
+
+
 
 
 root = tk.Tk()
