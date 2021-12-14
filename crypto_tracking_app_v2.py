@@ -34,14 +34,19 @@ class MainWindow:
         self.exchange_dropdown.place(x=185, y=160)
 
         self.price_label = tk.Label(mw, text='Price:', font=('bold', 15))
-        self.price_label.place(x=400, y=120)
+        self.price_label.place(x=400, y=80)
         self.price_input = tk.Entry()
-        self.price_input.place(x=480, y=120)
+        self.price_input.place(x=480, y=80)
 
         self.quantity_label = tk.Label(mw, text='Quantity:', font=('bold', 15))
-        self.quantity_label.place(x=400, y=160)
+        self.quantity_label.place(x=400, y=120)
         self.quantity_input = tk.Entry()
-        self.quantity_input.place(x=480, y=160)
+        self.quantity_input.place(x=480, y=120)
+
+        self.fee_label = tk.Label(mw, text='Fee:', font=('bold', 15))
+        self.fee_label.place(x=400, y=160)
+        self.fee_input = tk.Entry()
+        self.fee_input.place(x=480, y=160)
 
         self.insert = tk.Button(mw, text="Insert", highlightbackground='#3E4149', font=("bold", 14), bg="blue", command=self.insert)
         self.insert.place(x=20, y=210)
@@ -51,18 +56,19 @@ class MainWindow:
 
         date = self.txn_date_input.get()
         symbol = self.symbol_input.get().upper()
-        txn_type = self.txn_type_input.get()
+        txn_type = self.txn_type_input.get().upper()
         exchange_name = self.clicked.get()
         price = self.price_input.get()
         quantity = self.quantity_input.get()
+        fee = self.fee_input.get()
 
         if date == "" or symbol == "" or txn_type == "":
             MessageBox.showinfo("Enter Txn data", "All fields are required.")
         else:
             con = mysql.connect(host="localhost", user="root", password="mysqlrootpw", database="crypto_tracker_db")
             mycursor = con.cursor()
-            sql = "INSERT INTO txns (txn_date, symbol, txn_type, exchange_name, price, quantity) VALUES (%s, %s, %s, %s, %s, %s);"
-            val = (date, symbol, txn_type, exchange_name, price, quantity)
+            sql = "INSERT INTO txns (txn_date, symbol, txn_type, exchange_name, price, quantity, fee) VALUES (%s, %s, %s, %s, %s, %s, %s);"
+            val = (date, symbol, txn_type, exchange_name, price, quantity, fee)
             mycursor.execute(sql, val)
             # cursor.execute("insert into txns values('"+ str(1) + "', '" + date +"','" + symbol + "', '" + txn_type +"')")
             mycursor.execute("commit")
