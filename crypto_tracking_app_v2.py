@@ -29,7 +29,7 @@ class MainWindow:
         self.exchange_label = tk.Label(mw, text='Exchange:', font=('bold', 15))
         self.exchange_label.place(x=25, y=160)
         self.clicked = tk.StringVar()
-        self.exchange_dropdown = tk.OptionMenu(mw, self.clicked, "Binance", "Coinbase Pro", "Kraken", "Bittrex", "Coinbase App", "KuCoin Exchange", "BitForex Exchange")
+        self.exchange_dropdown = tk.OptionMenu(mw, self.clicked, "Binance", "Coinbase Pro", "Robinhood", "Kraken", "Bittrex", "Coinbase App", "KuCoin Exchange", "BitForex Exchange")
         self.exchange_dropdown.place(x=185, y=160)
 
         self.price_label = tk.Label(mw, text='Price:', font=('bold', 15))
@@ -86,8 +86,6 @@ class MainWindow:
         self.price_input.delete("0", "end")
         self.quantity_input.delete("0", "end")
         self.fee_input.delete("0", "end")
-
-
 
 
 root = tk.Tk()
