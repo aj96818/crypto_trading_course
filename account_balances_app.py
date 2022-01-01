@@ -12,12 +12,15 @@ class MainWindow:
         mw.geometry("900x400")
         mw.title("account_balances_app.py")
         mw.configure(bg="#49A")
-#        mw.clipboard_clear()
+
 
         # mw.text = tk.Text(mw, width=40, height=8)
         # mw.text.place(x=480, y=220)
         # mw.button = tk.Button(mw, text="Paste text button", command=self.paste)
         # mw.button.place(x=25, y=220)
+
+        self.clipboard = mw.clipboard_get()
+        #.clipboard_clear = mw.clipboard_clear(
 
         self.clear_button = tk.Button(mw, text="clear clipboard", command=self.clear)
         self.clear_button.place(x=25, y=250)
@@ -27,8 +30,6 @@ class MainWindow:
         self.button = tk.Button(mw, text="Paste text button", command=self.paste)
         self.button.place(x=25, y=220)
 
-        self.clipboard = mw.clipboard_get()
-#        self.clipboard_clear = mw.clipboard_clear()
 
         self.txn_date_label = tk.Label(mw, text='Last Updated:', font=('bold', 15))
         self.txn_date_label.place(x=25, y=30)
@@ -118,7 +119,7 @@ class MainWindow:
 
 
     def paste(self):
-
+        # https://stackoverflow.com/questions/6950007/pasting-in-the-tkinter-text-widget
         clipboard = self.clipboard
         clipboard = clipboard.replace("\n", "\\n")
 
@@ -138,8 +139,12 @@ class MainWindow:
 
 
     def clear(self):
+        pass
+#        self.mw.clipboard_clear()
 
-        self.clipboard.delete("0", "end")
+
+
+
 
 root = tk.Tk()
 b = MainWindow(root)
