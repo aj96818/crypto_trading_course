@@ -5,12 +5,12 @@ class SampleApp(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
         self.geometry("900x400")
-        self.title("crypto_tracking_app_v3.py")
+        self.title("account_balances_app_v2.py")
         self.configure(bg="#49A")
 
         self.text_box = tk.Text(self, width=40, height=8)
         self.text_box.delete('1.0', 'end')
-        self.text_box.place(x=480, y=260)
+        self.text_box.place(x=185, y=200)
         self.paste_button = tk.Button(self, text="Paste", command=self.doit)
         self.paste_button.place(x=480, y=220)
         self.doit()
@@ -18,8 +18,6 @@ class SampleApp(tk.Tk):
         self.clear_button = tk.Button(self, text="Clear", command=self.clear_text_input)
         self.clear_button.place(x=590, y=220)
         self.clear_text_input()
-
-
 
         self.txn_date_label = tk.Label(self, text='Last Updated:', font=('bold', 15))
         self.txn_date_label.place(x=25, y=30)
@@ -61,8 +59,8 @@ class SampleApp(tk.Tk):
 
         self.wallet_label = tk.Label(self, text='Wallet Address:', font=('bold', 15))
         self.wallet_label.place(x=25, y=200)
-        self.wallet_input = tk.Entry()
-        self.wallet_input.place(x=185, y=200)
+        # self.wallet_input = tk.Entry()
+        # self.wallet_input.place(x=185, y=200)
 
     def clear_text_input(self):
         self.text_box.delete("1.0", "end")
