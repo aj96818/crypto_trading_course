@@ -47,8 +47,15 @@ try:
     #  df_out.to_csv(r'coinmarketcap_api_20211014.csv')
     df_out.columns = ['Symbol', 'name', 'date_added', 'last_updated', 'price_usd', 'volume_24h', 'market_cap', 'percent_change_24h', 'percent_change_7d', 'percent_change_30d', 'percent_change_60d', 'percent_change_90d']
 
+
 except (ConnectionError, Timeout, TooManyRedirects) as e:
     print('except error: check code')
+
+# exclude the following 'names' from coinmktcap df: "luna-coin", "rune", "thorchain-erc20", "unicorn-token"
+
+names_to_exclude = ["genesis-mana", "covicoin", "rinnegan", "luna-coin", "golden-ratio-token", "rune", "thorchain-erc20", "unicorn-token", "sol-rune---rune-game"]
+df_out = df_out[~df_out.name.isin(names_to_exclude)]
+
 
 # End Coinmarketcap API Call
 
