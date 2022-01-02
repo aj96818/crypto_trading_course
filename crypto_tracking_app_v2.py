@@ -8,7 +8,7 @@ class MainWindow:
 
         self.mw = mw
         mw.geometry("700x400")
-        mw.title("crypto_tracking_app_v2.py")
+        mw.title("Transactions App (crypto_tracking_app_v2.py)")
         mw.configure(bg="gray12")
 
         self.txn_date_label = tk.Label(mw, text='Date of Transaction:', font=('bold', 15))

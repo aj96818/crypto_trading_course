@@ -10,7 +10,7 @@ class SampleApp(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
         self.geometry("700x400")
-        self.title("account_balances_app_v2.py")
+        self.title("Account Balances App (account_balances_app_v2.py)")
         self.configure(bg="#49A")
 
         self.text_box = tk.Text(self, width=40, height=8)
