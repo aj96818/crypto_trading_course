@@ -40,7 +40,7 @@ try:
                       'LINK', 'CVC', 'ATOM', 'MANA', 'ETH', 'ICP', 'MIOTA', 'KLAY', 'KSM', 'KNC',
                       'LUNA', 'XMR', 'ONT', 'OGN', 'CAKE', 'DOT', 'MATIC', 'REN', 'XRP', 'SOL',
                       'XLM', 'GRT', 'PERP', 'DWEB','THETA', 'RUNE', 'UNI', 'UBT', 'MRPH', 'LSK', 'NEO', 'OMI', 'DAG', 'TRAC'
-                        , 'FTM', 'KLIMA']
+                        , 'FTM', 'KLIMA', 'GALA', 'SAND', 'CHZ', 'RBC', 'USDT', 'DAI']
 
     #df_short.crypto_tickers.isin(crypto_tickers)
     df_out = df_short[df_short['symbol'].isin(crypto_tickers)]

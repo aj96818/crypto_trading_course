@@ -43,8 +43,8 @@ class SampleApp(tk.Tk):
         self.exchange_label.place(x=25, y=160)
         self.clicked = tk.StringVar()
         self.exchange_dropdown = tk.OptionMenu(self, self.clicked, "Binance Exchange", "Coinbase Pro Exchange", "Robinhood", "Kraken", "Bittrex", "Coinbase App", "KuCoin Exchange", "BitForex Exchange", "Metamask Wallet", "Trezor Hardware Wallet",
-                                               "fWallet (Fantom)", "Exodus Desktop App for Mac", "Terra Station Desktop App for Mac", "Phantom Chrome Extension Wallet",
-                                               "Pancakeswap", "Other")
+                                               "fWallet (Fantom)", "Hotbit.io", "Exodus Desktop App for Mac", "Terra Station Desktop App for Mac", "Phantom Chrome Extension Wallet",
+                                               "Pancakeswap", "ProBit Global", "Other")
         self.exchange_dropdown.place(x=185, y=160)
 
         self.price_label = tk.Label(self, text='Quantity:', font=('bold', 15))
