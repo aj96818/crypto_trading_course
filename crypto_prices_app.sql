@@ -64,11 +64,16 @@ JOIN
 WHERE 
 	accounts_cte.symbol = prices_cte.symbol;
 
-select * from balances order by total_amount desc;
-select sum(total_amount) from balances;
+select * from balances
+where symbol not in ('btc', 'eth', 'dot')
+order by total_amount desc;
 
+select sum(total_amount) from balances where symbol not in ('btc', 'eth', 'dot');
 
-SELECT * FROM accounts order by account_id desc;
+use crypto_tracker_db;
+
+SELECT * FROM accounts order by symbol desc;
+select * from accounts where symbol = 'avax';
 select * from txns order by txn_id desc;
 select distinct name from prices order by name desc;
 
