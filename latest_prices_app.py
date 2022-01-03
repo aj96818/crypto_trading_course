@@ -40,7 +40,7 @@ try:
                       'LINK', 'CVC', 'ATOM', 'MANA', 'ETH', 'ICP', 'MIOTA', 'KLAY', 'KSM', 'KNC',
                       'LUNA', 'XMR', 'ONT', 'OGN', 'CAKE', 'DOT', 'MATIC', 'REN', 'XRP', 'SOL',
                       'XLM', 'GRT', 'PERP', 'DWEB','THETA', 'RUNE', 'UNI', 'UBT', 'MRPH', 'LSK', 'NEO', 'OMI', 'DAG', 'TRAC'
-                        , 'FTM', 'KLIMA', 'GALA', 'SAND', 'CHZ', 'RBC', 'USDT', 'DAI']
+                        , 'FTM', 'KLIMA', 'GALA', 'SAND', 'EOS','CHZ', 'RBC', 'USDT', 'DAI']
 
     #df_short.crypto_tickers.isin(crypto_tickers)
     df_out = df_short[df_short['symbol'].isin(crypto_tickers)]
@@ -53,7 +53,7 @@ except (ConnectionError, Timeout, TooManyRedirects) as e:
 
 # exclude the following 'names' from coinmktcap df: "luna-coin", "rune", "thorchain-erc20", "unicorn-token"
 
-names_to_exclude = ["genesis-mana", "covicoin", "rinnegan", "luna-coin", "golden-ratio-token", "rune", "thorchain-erc20", "unicorn-token", "sol-rune---rune-game"]
+names_to_exclude = ["genesis-mana", "ruby-currency", "covicoin", "rinnegan", "luna-coin", "golden-ratio-token", "rune", "thorchain-erc20", "unicorn-token", "sol-rune---rune-game"]
 df_out = df_out[~df_out.name.isin(names_to_exclude)]
 
 
