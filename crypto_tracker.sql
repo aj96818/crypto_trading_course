@@ -35,7 +35,7 @@ INSERT INTO txns (txn_id, txn_date, symbol, txn_type, exchange_name, price, quan
 -- Queries (Begin)
 
 select * from txns
-where symbol = 'avax'
+where symbol = 'aave'
  order by txn_id desc;
 
 -- DELETE FROM txns where txn_id = 262;
@@ -53,8 +53,9 @@ SELECT
 FROM
     txns
 WHERE
-    txn_type = 'sell'
-AND symbol = 'ren'    
+    txn_type = 'buy'
+AND symbol = 'aave'   
+and exchange_name = 'binance' 
 GROUP BY
     symbol, txn_type
 ORDER BY ROUND(SUM(quantity * price)) DESC;

@@ -64,7 +64,7 @@ if __name__ == '__main_v2__':
     merged['close_date'] = merged['close_date'].astype(int)
     #    merged['close_date'] = datetime.fromtimestamp((merged['close_date']/1000))
 
-    merged.to_csv('df_merged.csv')
+#    merged.to_csv('df_merged.csv')
 
 
 

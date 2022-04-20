@@ -87,7 +87,7 @@ class SampleApp(tk.Tk):
         if date == "" or symbol == "" or exchange_name == "":
             MessageBox.showinfo("Enter Txn data", "All fields are required.")
         else:
-            con = mysql.connect(host="localhost", user="root", password="mysqlrootpw", database="crypto_tracker_db")
+            con = mysql.connect(host="localhost", user=None, password=None, database="crypto_tracker_db")
             mycursor = con.cursor()
             sql = "INSERT INTO accounts (last_updated, symbol, crypto_name, quantity, location, url, wallet_address, notes) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);"
             val = (date, symbol, crypto_name, price, exchange_name, quantity, wallet, notes)

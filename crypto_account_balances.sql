@@ -4,6 +4,8 @@ use crypto_tracker_db;
 
 -- drop table accounts;
 
+select * from txns order by txn_id desc;
+
 create table accounts (
 	account_id int not null auto_increment
     , last_updated date
@@ -20,7 +22,7 @@ INSERT INTO account_balances (account_id, last_updated, symbol, quantity, locati
 VALUES ('1', '2021-12-30', 'LINK', 0, 'Coinbase Pro')
 , ('2', '2021-12-30', 'ADA', 0, 'Coinbase Pro'); 
 
-SELECT * FROM accounts;
+SELECT * FROM accounts order by symbol desc;
 
 
 WITH
@@ -44,14 +46,13 @@ WITH
                     , txn_type), 
 balances_cte as (select
 					symbol
-                    , quantity
-                    , last_updated_balance_date
-				FROM account_balances)
+                    , sum(quantity) quantity
+				FROM accounts
+                GROUP BY symbol)
                     
 SELECT
 	buy_cte.symbol
     , (buy_cte.buy_quantity - sell_cte.sell_quantity) 'net_buy_sell'
-    , balances_cte.symbol
     , balances_cte.quantity
     , ((buy_cte.buy_quantity - sell_cte.sell_quantity)+ balances_cte.quantity) 'net_quantity'
 FROM
@@ -64,7 +65,7 @@ WHERE buy_cte.symbol = sell_cte.symbol
 and buy_cte.symbol = balances_cte.symbol;
 
 
-select * from txns limit 10;
+select * from accounts limit 10;
 
 select symbol, txn_type,sum(quantity)
 from txns

@@ -55,7 +55,7 @@ txn_type.place(x=20, y=90)
 enter_txn_type = Entry()
 enter_txn_type.place(x=265, y=90)
 
-insert = Button(root, text="insert", font=("italic", 14), bg="white", command=insert)
+insert = Button(root, text="insert", font=("italic", 14), bg="blue", command=insert)
 insert.place(x=20, y=140)
 
 get = Button(root, text="get", font=("italic", 14), bg="white", command=get)

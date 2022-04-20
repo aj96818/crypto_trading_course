@@ -36,7 +36,7 @@ try:
 
     df_short = df[['symbol', 'slug', 'date_added', 'last_updated', 'quote.USD.price', 'quote.USD.volume_24h', 'quote.USD.market_cap', 'quote.USD.percent_change_24h', 'quote.USD.percent_change_7d', 'quote.USD.percent_change_30d', 'quote.USD.percent_change_60d', 'quote.USD.percent_change_90d']]
 
-    crypto_tickers = ['ZRX', '1INCH', 'AAVE', 'AMP', 'BAL', 'BAT', 'BNB', 'BTC', 'BCH', 'ADA',
+    crypto_tickers = ['ZRX', '1INCH', 'AAVE', 'AMP', 'AVAX', 'BAL', 'BAT', 'BNB', 'BTC', 'BCH', 'ADA',
                       'LINK', 'CVC', 'ATOM', 'MANA', 'ETH', 'ICP', 'MIOTA', 'KLAY', 'KSM', 'KNC',
                       'LUNA', 'XMR', 'ONT', 'OGN', 'CAKE', 'DOT', 'MATIC', 'REN', 'XRP', 'SOL',
                       'XLM', 'GRT', 'PERP', 'DWEB','THETA', 'RUNE', 'UNI', 'UBT', 'MRPH', 'LSK', 'NEO', 'OMI', 'DAG', 'TRAC'

@@ -64,11 +64,13 @@ JOIN
 WHERE 
 	accounts_cte.symbol = prices_cte.symbol;
 
-select * from balances
-where symbol not in ('btc', 'eth', 'dot')
-order by total_amount desc;
+select * from balances order by total_amount desc;
+# where symbol not in ('btc', 'eth', 'dot')
+# order by total_amount desc;
 
-select sum(total_amount) from balances where symbol not in ('btc', 'eth', 'dot');
+select * from accounts where location = 'robinhood';
+
+select sum(total_amount) from balances where symbol not in ('btc', 'eth');
 
 use crypto_tracker_db;
 
@@ -76,4 +78,16 @@ SELECT * FROM accounts order by symbol desc;
 select * from accounts where symbol = 'avax';
 select * from txns order by txn_id desc;
 select distinct name from prices order by name desc;
+
+-- Binance Historical Prices from Testnet
+
+drop table binance;
+create table binance (
+	row_id int not null auto_increment
+    , symbol VARCHAR(25)
+    , price decimal(15, 5)
+    , close_date date
+    , primary key (row_id));
+
+select * from binance;
 
